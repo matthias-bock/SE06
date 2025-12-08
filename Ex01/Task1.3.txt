@@ -1,0 +1,5 @@
+Which of the following problems are embarrassingly parallel?
+
+b)
+c)
+e)
