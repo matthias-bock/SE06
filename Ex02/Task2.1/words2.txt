@@ -1,0 +1,6 @@
+a
+b
+c
+kayak
+radar
+racecar
