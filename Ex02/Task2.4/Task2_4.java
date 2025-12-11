@@ -22,10 +22,8 @@ class ArmstrongSearcher implements Runnable{
 	}
 
 	public void run(){
-		for(int currentNumber = rangeStart; currentNumber < 
-rangeStop; currentNumber++){
-			LinkedList<Integer> digits = 
-getDigits(currentNumber);
+		for(int currentNumber = rangeStart; currentNumber < rangeStop; currentNumber++){
+			LinkedList<Integer> digits = getDigits(currentNumber);
 			int m = digits.size();
 			int test = 0;
 			for(int digit : digits){
@@ -44,8 +42,10 @@ class Task2_4{
 			System.out.println("Missing arguments.");
 			return;
 		}
-		int max = 0;
-		int P = 0;
+
+		int min = 10;
+		int max;
+		int P;
 
 		try{
 			max = Integer.parseInt(args[0]) + 1;
@@ -53,21 +53,19 @@ class Task2_4{
 		} catch(NumberFormatException e){
 			System.out.println("Invalid input:");
 			System.out.println(e);
+			return;
 		}
 	
-		int chunkSize = max / P;
+		int chunkSize = (int)Math.ceil((double)(max - min) / P);
 
-		for(int i = 0; i < P - 1; i++){
-			int start = i * chunkSize;
-			int end = (i + 1) * chunkSize;
+		for(int i = 0; i < P ; i++){
+			int start = i * chunkSize + min;
+			int end = (i + 1) * chunkSize + min;
 
-			Thread t = new Thread(new ArmstrongSearcher(start, 
-end));
+			end = Math.min(end, max);
+
+			Thread t = new Thread(new ArmstrongSearcher(start, end));
 			t.start();
 		}
-		int start = (P - 1) * chunkSize;
-
-		Thread t = new Thread(new ArmstrongSearcher(start, max));
-		t.start();
 	}
 }
