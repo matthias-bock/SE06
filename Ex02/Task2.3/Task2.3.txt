@@ -1,0 +1,3 @@
+The password for the file 'ex02_longtail.enc' is '00554'
+The password for the file 'ex02_pride.enc' is '9375'
+The password for the file 'ex02_scarlet.enc' is '36892'

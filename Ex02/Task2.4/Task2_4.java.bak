@@ -35,7 +35,7 @@ class ArmstrongSearcher implements Runnable{
 			int m = digits.size();
 			
 			int armstrongNumber = 0;
-			// Calculate potential Armstrong number
+			// Calculate potential armstrong number
 			for(int digit : digits){
 				armstrongNumber += Math.pow(digit, m);
 			}

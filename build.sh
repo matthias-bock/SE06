@@ -3,6 +3,7 @@
 thingsToZip=(
     "*.java"
     "*.txt"
+    "*.jpeg"
 )
 
 zipPrefix="s1337023-"
@@ -13,7 +14,7 @@ echo "----------------"
 
 for item in ./*; do
     if [[ -e $item && -d $item ]]; then
-        echo "-- Building $item.zip"
-        zip -r $zipPrefix${item#"./"}.zip $item -i ${thingsToZip[@]}
+        echo "-- Building ${item:l}.zip"
+        zip -r $zipPrefixi${item#"./"}.zip $item -i ${thingsToZip[@]}
     fi
 done

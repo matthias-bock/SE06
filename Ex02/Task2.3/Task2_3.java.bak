@@ -1,16 +1,16 @@
 import java.util.*;
 
-// Class for thread synchronization
+// Class for thread synchronisation
 class GlobalSychronizer{
     public static volatile boolean foundPassword = false;
 }
 
-// Class to recover the password of a file
+// Class to recover the passowrd of a file
 class PasswordRecoverer implements Runnable {
 
     // The target file to decrypt
     String targetFile;
-    // The output file used to write the decrypted contents
+    // The output file used to write the decrypted contens
     String outputFile;
     // Start of the number range that this instance should analyze (inclusive)
     int pwRangeStart;
@@ -75,7 +75,7 @@ class Task2_3{
         String output = args[1];
         
         // The largest number that is a potential password is 99999
-        // Since the password guesser excludes the end of the range specified, the number is incremented by one
+        // Since the passowrd guesser excludes the end of the range specified, the number is incremented by one
         int max = 99999 + 1;
 
         int maxDigits = 5;

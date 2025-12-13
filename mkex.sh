@@ -9,7 +9,7 @@ echo "-- Folder: $exDir"
 
 mkdir $exDir
 
-taskDirBase="Task$exnr"
+taskDirBase="task$exnr"
 
 echo "-- Creating task folders"
 

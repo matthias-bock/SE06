@@ -1,5 +1,5 @@
 Yes, it can generate wrong output.
-This can happen if two Palindromes occur in the two text files at the same location, e.g. at the start.
+This can happen if two Palindromes ooccur in the two text files at the same location, e.g. at the start.
 In this case, it is possible that the first Thread already passed the check '!Global.palindromes.contains(line)' and the palindrome is currently being printed.
 But the second thread checks the if condition before the first thread writes the palindrome to the global list.
 In this case, the second thread also passes the test and the palindrome is printed twice.
