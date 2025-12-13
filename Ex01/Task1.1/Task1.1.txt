@@ -1,4 +1,4 @@
-The N exams can be devided between the M friends.
+The N exams can be divided between the M friends.
 Each person can then search for the student with the highest grade in their portion of grades.
 After each person found the student in their batch of exams, these M students can be compared to find the overall highest grade among all N exam sheets.
 To skip the work of comparing the M grades at the end, the current highest graded student can be written to a whiteboard,

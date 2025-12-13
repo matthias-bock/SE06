@@ -2,12 +2,13 @@ Among the network topologies we considered, which one
 
 a) Is the most expensive to setup in terms of equipment costs?
     Fully connected network.
-    Requires connections between all participants, which is costly since the number of connections grows as 2^n-1.
+    Requires connections between all participants, which is costly since the number of connections grows rapidly with more participants.
 
 b) Has the highest (i.e., slowest) worst-case message delivery time?
-    Line Network.
-    In a worst case scenario, the signal has to travel from one end of the line to the other, visiting every host.
-    In contrast to a bus network however, every participant has to process the packet and send it to its neighbor, adding additional delay.
+    Bus network.
+    All participants share a single communication line.
+    This means that only one node can transmit at a time.
+    In a worst case scenario, a node can wait indefinitely to send data.
 
 c) Corresponds to a small home network, where all devices are directly connected to the main router?
     Star Network.

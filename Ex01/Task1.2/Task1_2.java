@@ -3,7 +3,6 @@ import java.util.Random;
 
 // Simple class to represent a node
 class Node{
-    // Number of the node
     public int number;
     // Time it takes to reach this node.
     public long time;
@@ -17,19 +16,19 @@ class Node{
 // Class to simulate a network based on a graph
 class NetworkSimulator{
 
-    // Adjacency matrix of the graph
     int[][] graph;
-    // How many nodes the graph has
-    int dim;
+    
+    int nodeCount;
 
     // List of nodes that have already bee visited for the current simulation.
     LinkedList<Integer> visited;
     // Number of iterations to do for the simulation
     int iterations;
 
-    public NetworkSimulator(int[][] graph, int dim, int iterations){
+    public NetworkSimulator(int[][] graph, int iterations){
         this.graph = graph;
-        this.dim = dim;
+        // The graph array has one row for each node
+        this.nodeCount = graph.length;
         this.iterations = iterations;
     }
 
@@ -41,8 +40,8 @@ class NetworkSimulator{
 
         for(int i = 0; i < iterations; i++){
             // Chose two random nodes
-            int a = r.nextInt(dim);
-            int b = r.nextInt(dim);
+            int a = r.nextInt(nodeCount);
+            int b = r.nextInt(nodeCount);
 
             // Simulate the signal
             long thisTime = simulate(a, b);
@@ -65,17 +64,15 @@ class NetworkSimulator{
         // List of nodes that need to be checked
         LinkedList<Node> nodesToCheck = new LinkedList<Node>();
 
-        // Add the start node with a initial signal travel time of 0
         nodesToCheck.add(new Node(from, 0l));
 
-        // Process all nodes that still need to be checked
         while(!nodesToCheck.isEmpty()){
             
             Node current = nodesToCheck.pop();
 
             // If the current node is the target
             if(current.number == to){
-                // Return the time taken to get there
+                // Return the time the signal took to get there
                 return current.time;
             } else {
                 // Calculate the time the signal needs to the next nodes
@@ -107,8 +104,9 @@ public class Task1_2{
 
     public static void main(String[] args){
 
-        // Define the two netwok graphs
-        int[][] graph_SimpleNetwork = new int[][] {
+        // Define the two network graphs
+        // Each row of the array is a node and contains all the neighbors of that node
+        int[][] graph_BasicNetwork = new int[][] {
             /*0 */ {1},
             /*1 */ {0, 2},
             /*2 */ {1, 3},
@@ -149,11 +147,10 @@ public class Task1_2{
         };
 
         // Create the network simulators
-        NetworkSimulator simpleNetwork = new NetworkSimulator(graph_SimpleNetwork, 17, 5000);
+        NetworkSimulator basicNetwork = new NetworkSimulator(graph_BasicNetwork, 5000);
+        NetworkSimulator advancedNetwork = new NetworkSimulator(graph_AdvancedNetwork, 5000);
 
-        NetworkSimulator advancedNetwork = new NetworkSimulator(graph_SimpleNetwork, 17, 5000);
-
-        // Perform simulation and print results
-        System.out.printf("Simple Network: %fms; Advanced Network: %fms\n", simpleNetwork.simulate(), advancedNetwork.simulate());
+        // Perform simulation
+        System.out.printf("basic network: %f milliseconds, advanced network: %f milliseconds.\n", basicNetwork.simulate(), advancedNetwork.simulate());
     }
 }
