@@ -61,7 +61,6 @@ class Task3_2{
 
         int largest_1_2 = searcher1.largest > searcher2.largest ? searcher1.largest : searcher2.largest;
         int largest_3_4 = searcher3.largest > searcher4.largest ? searcher3.largest : searcher4.largest;
-
         int largest = largest_1_2 > largest_3_4 ? largest_1_2 : largest_3_4;
 
         System.out.printf("The largest value is: %d\n", largest);

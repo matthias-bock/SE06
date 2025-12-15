@@ -15,6 +15,6 @@ echo "----------------"
 for item in ./*; do
     if [[ -e $item && -d $item ]]; then
         echo "-- Building ${item:l}.zip"
-        zip -r $zipPrefixi${item#"./"}.zip $item -i ${thingsToZip[@]}
+        zip -r $zipPrefix${item#"./"}.zip $item -i ${thingsToZip[@]}
     fi
 done

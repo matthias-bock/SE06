@@ -49,7 +49,7 @@ class ex03_sort2Proc
         // Allocate new array for out of place array merging algorithm
         int merged[] = new int[N];
 
-        // While either the left or right half of the array are not yet reached
+        // While either the left or right half of the array are not yet empty
         while(iL < N / 2 && iR < N){
             
             // Merge the smaller value and increase the index

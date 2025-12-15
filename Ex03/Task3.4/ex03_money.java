@@ -42,7 +42,7 @@ class ex03_money
             // Each Spouse now waits on the barrier
             try{
                 ThreadSynchronizer.barrier.await();
-            } catch (Exception e){}
+            } catch(Exception e){}
         }
     }
                     
@@ -60,8 +60,7 @@ class ex03_money
         try{
             // The main thread also waits on the barrier
             ThreadSynchronizer.barrier.await();
-        }
-        catch(Exception e){}
+        } catch(Exception e){}
      
         System.out.println(Account.balance);
     }
