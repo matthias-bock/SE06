@@ -72,6 +72,7 @@ class ex03_sort2Proc
         // Replace array with now sorted array
         A = merged;
 
+        // Check if the array was sorted correctly
         boolean sorted = true;
         for(int j = 0; j < N - 1 && sorted; j++){
             if(A[j] > A[j + 1]) sorted = false;

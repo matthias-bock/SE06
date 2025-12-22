@@ -1,10 +1,12 @@
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 
+// Class to synchronize multiple threads
 class ThreadSynchronizer{
     public static CountDownLatch CDL;
 }
 
+// Search for the largest number in a number range
 class NumberSearcher implements Runnable{
 
     public int largest;
@@ -36,6 +38,7 @@ class Task3_2{
         int array[] = new int[N];
         Random r = new Random();
 
+        // Initialize array with random numbers
         for(int i = 0; i < N; i++){
             array[i] = r.nextInt(1000);
         }
@@ -47,18 +50,21 @@ class Task3_2{
         NumberSearcher searcher3 = new NumberSearcher(array, N / 2, 3 * N / 4);
         NumberSearcher searcher4 = new NumberSearcher(array, 3 * N / 4, N);
 
+        // Start the 4 searching threads
         new Thread(searcher1).start();
         new Thread(searcher2).start();
         new Thread(searcher3).start();
         new Thread(searcher4).start();
 
         try{
+            // Wait until all searchers are finished
             ThreadSynchronizer.CDL.await();
         } catch (Exception e){
             System.out.println(e);
             return;
         }
 
+        // Search for the overall largest number
         int largest_1_2 = searcher1.largest > searcher2.largest ? searcher1.largest : searcher2.largest;
         int largest_3_4 = searcher3.largest > searcher4.largest ? searcher3.largest : searcher4.largest;
         int largest = largest_1_2 > largest_3_4 ? largest_1_2 : largest_3_4;

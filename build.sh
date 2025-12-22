@@ -4,6 +4,7 @@ thingsToZip=(
     "*.java"
     "*.txt"
     "*.jpeg"
+    "*.pml"
 )
 
 zipPrefix="s1337023-"
