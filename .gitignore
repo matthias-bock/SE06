@@ -1,3 +1,14 @@
 *.class
 *.zip
 .DS_Store
+*.c
+*.h
+*.m
+*.p
+*.t
+*.b
+pan
+*.exc
+*.exs
+*.pml.trail
+*.spd
