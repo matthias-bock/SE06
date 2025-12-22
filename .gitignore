@@ -12,3 +12,5 @@ pan
 *.exs
 *.pml.trail
 *.spd
+*.raw
+*.tmp
