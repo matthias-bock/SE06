@@ -3,8 +3,8 @@
 // ltl {<> (eat == 1)}
 
 // Nobody is eating indefinitely often (in other words, there is no guarantee that the next meal will happen).
-// Safety
-// ltl {!([]<> (eat == 1))}
+// Liveness -> Expect error
+// ltl {[]<> (eat == 1)}
 
 // It is possible to reach a situation when nobody is eating.
 // Liveness

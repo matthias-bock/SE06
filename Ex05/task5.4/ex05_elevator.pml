@@ -1,15 +1,15 @@
 
-// Elevator returns to the state “down with doors open” indefinitely often.
+// Elevator returns to the state "down with doors open" indefinitely often.
 // Liveness
-// ltl {[]<> (state == 1)}
+// ltl {[]<> (state == 1 && doors_open)}
 
-// When the doors are open, the elevator is either in the “up” or “down” state.
+// When the doors are open, the elevator is either in the "up" or "down" state.
 // Safety
 // ltl { [](doors_open -> (state == 1 || state == 3))}
 
 // Once the doors are closed, eventually the elevator will start moving.
 // Liveness
-ltl { !doors_open -> <>(state == 2 || state == 4)}
+// ltl { !doors_open -> <>(state == 2 || state == 4)}
 
 bool doors_open = true;
 int state = 1;
